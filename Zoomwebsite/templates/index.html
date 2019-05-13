@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Final Output</title>
+  </head>
+  <body>
+    <h1>VIDEO OUTPUT</h1>
+    <img id="bg" src="{{ url_for('video_feed') }}">
+    <br />
+    <p>ENTER USER INPUT</p>
+	<input type="number" id="myText" value="Mickey">
+	<button onclick="myFunction()">Submit</button>
+	<script>
+	function myFunction() {
+  		var x=document.getElementById("myText").value;
+  		window.location.href = "http://localhost:5000/UserInp/"+x;
+	}
+</script>
+  </body>
+</html>

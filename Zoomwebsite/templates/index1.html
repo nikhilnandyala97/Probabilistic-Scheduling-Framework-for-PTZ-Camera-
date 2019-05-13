@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>Video Mobile</title>
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<script type="text/javascript" src="js/jquery.js"></script>
+<link href="kang.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="public.js"></script>
+<script language="javascript">
+<!--
+var img = new Image();
+var imgObj;
+
+
+function loadDoc(url) {
+  var xhttp;
+  xhttp=new XMLHttpRequest();
+  xhttp.open("GET", url, false);
+  xhttp.send();
+  if (xhttp.status === 200) {
+  return xhttp.responseText;
+	}
+}
+
+
+function preload()
+{   
+	img.src='/imp.png'+new Date;
+	console.log(img.src)
+}
+
+function changesrc()
+{
+	img1.src=img.src;
+	preload();
+	setTimeout(changesrc,1);
+}
+
+function update()
+{
+	imgObj = document.getElementById('img1');
+	imgObj.src = img.src;
+	img.src='/imp.png'+new Date;
+	console.log(img.src)
+	}
+
+function takeError()
+{
+	img.src='/imp.png'+new Date;
+	console.log(img.src)
+}
+
+function startonload()
+{
+	img.src='/imp.png'+new Date;
+	console.log(img.src)
+	img.onerror=takeError;
+	img.onload=update;
+}
+
+function load()
+{
+	if (navigator.appName.indexOf("Microsoft IE Mobile") != -1)
+	{
+		preload();
+		changesrc();
+		return;
+	}
+	startonload();
+}
+
+function ptzUpSubmit()
+{
+	form1.action="http://admin:*1Password@172.21.6.135/cgi-bin/hi3510/ytup.cgi";
+	form1.submit();
+}
+
+function ptzDownSubmit()
+{
+	form1.action="http://admin:*1Password@172.21.6.135/cgi-bin/hi3510/ytdown.cgi";
+	form1.submit();
+}
+
+function ptzLeftSubmit()
+{
+	form1.action="http://admin:*1Password@172.21.6.135/cgi-bin/hi3510/ytleft.cgi";
+	form1.submit();
+}
+
+function ptzRightSubmit()
+{
+	form1.action="http://admin:*1Password@172.21.6.135/cgi-bin/hi3510/ytright.cgi";
+	form1.submit();
+}
+
+//-->
+</script>
+
+
+
+</head>
+<body onLoad="load()" style="background-color: #E8E8E8; ">
+<form name="form1" method="get" target="test">
+</form>
+<p><input type="button" class="w3-button w3-black" value="&#8593;" name="B3" onClick="ptzUpSubmit()" > <br />
+<input type="button" value="&#8595;" name="B2" onClick="ptzDownSubmit()"> <br />
+<input type="button" value="&#8592;" name="B1" onClick="ptzLeftSubmit()"> <br />
+<input type="button" value="&#8594;" name="B0" onClick="ptzRightSubmit()"> <br />
+<button type="button" name="B4" onClick="location.reload()"><script type="text/javascript">document.write(str_refresh);</script></button>
+</p>
+<p><img id="img1" border="0" src="file:///C://Users//Krishna%20Sai%20Teja//Desktop//S2//images//0.png"></p>
+<iframe name="test" style="none" width="0" height="0"></iframe>
+</body>
+</html>
